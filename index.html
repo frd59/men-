@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Uygulama Menüsü</title>
   <style>
     body {
@@ -15,9 +15,16 @@
     .header {
       background-color: #fff;
       width: 100%;
-      height: 200px;
+      aspect-ratio: 16/5;
       position: relative;
       overflow: hidden;
+      max-height: 450px;
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        aspect-ratio: 16/7;
+      }
     }
 
     .slideshow-container img {
@@ -34,6 +41,20 @@
     .slideshow-container img.active {
       opacity: 1;
     }
+
+    /* Görsellere özel yüzdeyle hizalama */
+    .pos-1  { object-position: 50% 50%; }
+    .pos-2  { object-position: 50% 30%; }
+    .pos-3  { object-position: 40% 30%; }
+    .pos-4  { object-position: 30% 40%; }
+    .pos-5  { object-position: 70% 30%; }
+    .pos-6  { object-position: 20% 45%; }
+    .pos-7  { object-position: 60% 30%; }
+    .pos-8  { object-position: 50% 45%; }
+    .pos-9  { object-position: 80% 30%; }
+    .pos-10 { object-position: 25% 22%; }
+    .pos-11 { object-position: 45% 31%; }
+    .pos-12 { object-position: 50% 30%; }
 
     /* Menü */
     .menu-container {
@@ -89,60 +110,51 @@
   <!-- ÜST SLIDESHOW -->
   <div class="header">
     <div class="slideshow-container">
-      <img src="https://i.hizliresim.com/eqyhuxx.png" alt="Resim 1" class="active">
-      <img src="https://i.hizliresim.com/piik6em.jpg" alt="Resim 2">
-      <img src="https://i.hizliresim.com/1ui2kqb.jpg" alt="Resim 3">
-      <img src="https://i.hizliresim.com/kvi321l.jpg" alt="Resim 4">
-      <img src="https://i.hizliresim.com/p920kn7.jpg" alt="Resim 5">
-      <img src="https://i.hizliresim.com/v55s4ca.jpg" alt="Resim 6">
-      <img src="https://i.hizliresim.com/jxowrtu.jpg" alt="Resim 7">
-      <img src="https://i.hizliresim.com/fn1xbpf.jpg" alt="Resim 8">
-      <img src="https://i.hizliresim.com/4h65hhq.jpg" alt="Resim 9">
-      <img src="https://i.hizliresim.com/7x9ux4o.jpg" alt="Resim 10">
-      <img src="https://i.hizliresim.com/4d121vw.jpg" alt="Resim 11">
-      <img src="https://i.hizliresim.com/4h65hhq.jpg" alt="Resim 12">
+      <img src="https://i.hizliresim.com/eqyhuxx.png" alt="Resim 1" class="active pos-1">
+      <img src="https://i.hizliresim.com/piik6em.jpg" alt="Resim 2" class="pos-2">
+      <img src="https://i.hizliresim.com/1ui2kqb.jpg" alt="Resim 3" class="pos-3">
+      <img src="https://i.hizliresim.com/kvi321l.jpg" alt="Resim 4" class="pos-4">
+      <img src="https://i.hizliresim.com/p920kn7.jpg" alt="Resim 5" class="pos-5">
+      <img src="https://i.hizliresim.com/v55s4ca.jpg" alt="Resim 6" class="pos-6">
+      <img src="https://i.hizliresim.com/jxowrtu.jpg" alt="Resim 7" class="pos-7">
+      <img src="https://i.hizliresim.com/fn1xbpf.jpg" alt="Resim 8" class="pos-8">
+      <img src="https://i.hizliresim.com/4h65hhq.jpg" alt="Resim 9" class="pos-9">
+      <img src="https://i.hizliresim.com/7x9ux4o.jpg" alt="Resim 10" class="pos-10">
+      <img src="https://i.hizliresim.com/4d121vw.jpg" alt="Resim 11" class="pos-11">
+      <img src="https://i.hizliresim.com/4h65hhq.jpg" alt="Resim 12" class="pos-12">
     </div>
   </div>
 
   <!-- MENÜ KUTULARI -->
   <div class="menu-container">
-
     <div class="menu-box">
       <div class="menu-icon">📝</div>
       <a href="https://pasov.vercel.app/">TEKLİFLER</a>
     </div>
-
     <div class="menu-box">
       <div class="menu-icon">📅</div>
       <a href="go:teklifal">TEKLİF AL</a>
     </div>
-
     <div class="menu-box">
       <div class="menu-icon">🎉</div>
       <a href="go:tak">ETKİNLİKLER</a>
     </div>
-
     <div class="menu-box">
       <div class="menu-icon">📅</div>
       <a href="go:taktak">TAKVİM</a>
     </div>
-
     <div class="menu-box">
       <div class="menu-icon">📢</div>
       <a href="https://musteri-beta.vercel.app/">MÜŞTERİ PANELİ</a>
     </div>
-
     <div class="menu-box">
       <div class="menu-icon">🎬</div>
       <a href="https://site-azure-mu.vercel.app/">PLATFORM</a>
     </div>
-
   </div>
 
   <!-- ALT TARİH VE SAAT -->
-  <div class="footer" id="datetime">
-    Tarih ve saat yükleniyor...
-  </div>
+  <div class="footer" id="datetime">Tarih ve saat yükleniyor...</div>
 
   <!-- JAVASCRIPT -->
   <script>
@@ -166,9 +178,9 @@
       const time = now.toLocaleTimeString('tr-TR');
       document.getElementById("datetime").innerHTML = `${date} - ${time}`;
     }
+
     setInterval(updateDateTime, 1000);
     updateDateTime();
   </script>
-
 </body>
 </html>
