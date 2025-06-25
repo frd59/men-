@@ -11,25 +11,38 @@
       background-color: #f4f4f4;
     }
 
+    /* Header Slideshow */
     .header {
-      background-color: #ffffff;
-      padding: 20px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
+      background-color: #fff;
+      width: 100%;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .header img {
-      max-width: 150px;
-      height: auto;
+    .slideshow-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
     }
 
+    .slideshow-container img.active {
+      opacity: 1;
+    }
+
+    /* Menü */
     .menu-container {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr)); /* Her zaman 2 sütun */
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 10px;
       padding: 20px;
-      max-width: 500px;  /* genişliği sınırla */
-      margin: 0 auto;     /* ortala */
+      max-width: 500px;
+      margin: 0 auto;
     }
 
     .menu-box {
@@ -57,6 +70,7 @@
       margin-bottom: 8px;
     }
 
+    /* Footer */
     .footer {
       text-align: center;
       padding: 15px;
@@ -72,9 +86,22 @@
 </head>
 <body>
 
-  <!-- ÜST LOGO -->
+  <!-- ÜST SLIDESHOW -->
   <div class="header">
-    <img src="https://i.hizliresim.com/eqyhuxx.png" alt="Logo">
+    <div class="slideshow-container">
+      <img src="https://i.hizliresim.com/eqyhuxx.png" alt="Resim 1" class="active">
+      <img src="https://i.hizliresim.com/piik6em.jpg" alt="Resim 2">
+      <img src="https://i.hizliresim.com/1ui2kqb.jpg" alt="Resim 3">
+      <img src="https://i.hizliresim.com/kvi321l.jpg" alt="Resim 4">
+      <img src="https://i.hizliresim.com/p920kn7.jpg" alt="Resim 5">
+      <img src="https://i.hizliresim.com/v55s4ca.jpg" alt="Resim 6">
+      <img src="https://i.hizliresim.com/jxowrtu.jpg" alt="Resim 7">
+      <img src="https://i.hizliresim.com/fn1xbpf.jpg" alt="Resim 8">
+      <img src="https://i.hizliresim.com/4h65hhq.jpg" alt="Resim 9">
+      <img src="https://i.hizliresim.com/7x9ux4o.jpg" alt="Resim 10">
+      <img src="https://i.hizliresim.com/4d121vw.jpg" alt="Resim 11">
+      <img src="https://i.hizliresim.com/4h65hhq.jpg" alt="Resim 12">
+    </div>
   </div>
 
   <!-- MENÜ KUTULARI -->
@@ -85,12 +112,10 @@
       <a href="https://pasov.vercel.app/">TEKLİFLER</a>
     </div>
 
-
     <div class="menu-box">
       <div class="menu-icon">📅</div>
       <a href="go:teklifal">TEKLİF AL</a>
     </div>
-
 
     <div class="menu-box">
       <div class="menu-icon">🎉</div>
@@ -119,7 +144,21 @@
     Tarih ve saat yükleniyor...
   </div>
 
+  <!-- JAVASCRIPT -->
   <script>
+    // Slideshow
+    const images = document.querySelectorAll('.slideshow-container img');
+    let current = 0;
+
+    function showNextImage() {
+      images[current].classList.remove('active');
+      current = (current + 1) % images.length;
+      images[current].classList.add('active');
+    }
+
+    setInterval(showNextImage, 1500); // 1.5 saniye
+
+    // Tarih ve Saat
     function updateDateTime() {
       const now = new Date();
       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
