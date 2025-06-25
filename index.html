@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uygulama Menüsü</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .header {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header img {
+      max-width: 150px;
+      height: auto;
+    }
+
+    .menu-container {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr)); /* Her zaman 2 sütun */
+      gap: 10px;
+      padding: 20px;
+      max-width: 500px;  /* genişliği sınırla */
+      margin: 0 auto;     /* ortala */
+    }
+
+    .menu-box {
+      background-color: #ffffff;
+      padding: 15px;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .menu-box:hover {
+      transform: scale(1.05);
+    }
+
+    .menu-box a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      display: block;
+    }
+
+    .menu-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      color: #666;
+      background-color: #fff;
+      border-top: 1px solid #ddd;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ÜST LOGO -->
+  <div class="header">
+    <img src="https://i.hizliresim.com/eqyhuxx.png" alt="Logo">
+  </div>
+
+  <!-- MENÜ KUTULARI -->
+  <div class="menu-container">
+
+    <div class="menu-box">
+      <div class="menu-icon">📝</div>
+      <a href="https://pasov.vercel.app/">TEKLİFLER</a>
+    </div>
+
+
+    <div class="menu-box">
+      <div class="menu-icon">📅</div>
+      <a href="go:teklifal">TEKLİF AL</a>
+    </div>
+
+
+    <div class="menu-box">
+      <div class="menu-icon">🎉</div>
+      <a href="go:tak">ETKİNLİKLER</a>
+    </div>
+
+    <div class="menu-box">
+      <div class="menu-icon">📅</div>
+      <a href="go:taktak">TAKVİM</a>
+    </div>
+
+    <div class="menu-box">
+      <div class="menu-icon">📢</div>
+      <a href="https://musteri-beta.vercel.app/">MÜŞTERİ PANELİ</a>
+    </div>
+
+    <div class="menu-box">
+      <div class="menu-icon">🎬</div>
+      <a href="https://site-azure-mu.vercel.app/">PLATFORM</a>
+    </div>
+
+  </div>
+
+  <!-- ALT TARİH VE SAAT -->
+  <div class="footer" id="datetime">
+    Tarih ve saat yükleniyor...
+  </div>
+
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const date = now.toLocaleDateString('tr-TR', options);
+      const time = now.toLocaleTimeString('tr-TR');
+      document.getElementById("datetime").innerHTML = `${date} - ${time}`;
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+  </script>
+
+</body>
+</html>
